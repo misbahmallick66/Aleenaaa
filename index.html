@@ -1,70 +1,204 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Happy Birthday Aleena 🎂</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<title>For Aleenu </title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@500&family=Cherry+Bomb+One&display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:linear-gradient(135deg,#ffd6e7,#d6f0ff);font-family:Poppins, sans-serif;text-align:center;color:#333;overflow-x:hidden}
-.container{padding:40px 20px}
-h1{font-family:Montserrat;font-size:3em;color:#ff4d88;margin-top:40px;letter-spacing:1px}
-button{padding:15px 25px;border:none;border-radius:30px;background:#ff4d88;color:white;font-size:18px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.2);transition:.3s}
-button:hover{transform:scale(1.08)}
-.card{display:none;margin-top:30px;animation:fade 1s ease forwards}
-@keyframes fade{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:20px}
-.gallery img{width:100%;border-radius:20px;box-shadow:0 6px 20px rgba(0,0,0,.2);transition:.4s}
-.gallery img:hover{transform:scale(1.05) rotate(2deg)}
-.message{font-size:18px;max-width:700px;margin:20px auto;line-height:1.7}
-.final{font-size:24px;color:#ff4d88;font-weight:600;margin-top:40px}
-.emoji{font-size:30px}
-.heart{position:fixed;font-size:20px;animation:float 2s linear forwards}
-@keyframes float{from{transform:translateY(0) scale(1);opacity:1}to{transform:translateY(-200px) scale(1.8);opacity:0}}
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    background: linear-gradient(-45deg, #ffcce6, #fce4ec, #f3e5f5, #ffd1dc);
+    background-size: 400% 400%;
+    animation: bg 15s ease infinite;
+}
+
+@keyframes bg {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+.center { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+
+.highlight { color: #ff4da6; font-weight: 700; }
+
+h1 { font-family: 'Cherry Bomb One', cursive; font-size: 3.5rem; text-shadow: 2px 2px #ff4da6; margin-bottom: 10px; }
+
+#intro { position: relative; z-index: 10000; } /* Ensures the button is clickable */
+
+button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4da6;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(255, 77, 166, 0.3);
+    position: relative;
+    z-index: 10001;
+}
+
+.hidden { display: none; }
+.typing { font-size: 24px; max-width: 750px; line-height: 1.6; padding: 20px; color: #555; background: rgba(255,255,255,0.4); border-radius: 20px; }
+
+.gallery { position: relative; height: 100vh; overflow: hidden; }
+.polaroid {
+    position: absolute;
+    width: 170px;
+    background: #fff;
+    color: #333;
+    padding: 10px 10px 20px 10px;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: rotate(var(--r));
+    animation: drop .8s ease forwards;
+}
+.polaroid img { width: 100%; height: 170px; object-fit: cover; }
+.caption { font-size: 13px; margin-top: 8px; text-align: center; font-family: 'Playfair Display', serif; }
+
+@keyframes drop {
+    from { opacity: 0; transform: translateY(-100px) rotate(var(--r)); }
+    to { opacity: 1; transform: translateY(0) rotate(var(--r)); }
+}
+
+.letter-container { 
+    padding: 40px 20px; 
+    text-align: center; 
+    color: #444; 
+    max-width: 800px; 
+    margin: auto;
+    overflow-y: auto;
+    height: 90vh;
+}
+.letter-content {
+    background: rgba(255,255,255,0.8);
+    padding: 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    line-height: 1.8;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.end-sig { font-family: 'Cherry Bomb One', cursive; font-size: 28px; color: #ff4da6; margin-top: 20px; }
+
+.heart-pop {
+    position: fixed;
+    font-size: 2rem;
+    pointer-events: none;
+    animation: flyUp 1s ease-out forwards;
+    z-index: 999;
+}
+@keyframes flyUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
+}
 </style>
 </head>
 <body onclick="createHeart(event)">
-<audio id="bgm" src="song.mp3" loop></audio>
-<div class="container">
-<h1>Tap Here Aleena 💌</h1>
-<button onclick="start()">Open Your Surprise</button><div id="step1" class="card">
-<h1>Happy Birthday Aleena Aroos 🎂</h1>
-<p class="message">Today the world got prettier because you exist 😌</p>
-</div><div id="step2" class="card">
-<p class="message">You are officially upgraded to another level of cute + drama + funny combo pack 😭</p>
-</div><div id="step3" class="card">
-<h1>Our Memories 📸</h1>
-<div class="gallery">
-<img src="image1.jpg">
-<img src="image2.jpg">
-<img src="image3.jpg">
-<img src="image4.jpg">
-<img src="image5.jpg">
-<img src="image6.jpg">
+
+<audio id="bgm" src="song.mp3" loop preload="auto"></audio>
+
+<div id="intro" class="center">
+    <h1>Hi Aleenu! </h1>
+    <p>Tap to start your 16th level celebration</p>
+    <button id="startBtn" onclick="startExperience()">Enter Here </button>
 </div>
-</div><div id="step4" class="card">
-<p class="message">Thank you for being the person I laugh with, annoy, fight and still can't stay mad at 😂</p>
-<p class="message">Life is better because you're in it 💗</p>
-</div><div id="step5" class="card">
-<p class="final">Stay the same soft hearted idiot forever 🤍<br> — Your mallick</p>
-<p class="emoji">🎉🎈🎂</p>
+
+<div id="story" class="center hidden">
+    <div id="text" class="typing"></div>
 </div>
-</div><script>
-function start(){
- document.querySelector('button').style.display='none';
- document.getElementById('bgm').play();
- let steps=['step1','step2','step3','step4','step5'];
- steps.forEach((id,i)=>{
-   setTimeout(()=>{document.getElementById(id).style.display='block';},1500*i);
- });
+
+<div id="memories" class="gallery hidden"></div>
+
+<div id="letter" class="hidden">
+    <div class="letter-container">
+        <div class="letter-content">
+            Hii <span class="highlight">aleenuu</span> it's your birthday happy birthday to you aleenaa  <br><br>
+            My best friend, you supported me in every situation thank you for that�a big thank you for that really. I swear to god you are the <span class="highlight">kindest soul</span> i ever met. You never judged me, you never disrespect mee (unless that gayy allegations ).<br><br>
+            Yeahh sooo it's your birthday! Last time I forgot your birthday and didn't wish you at 12 ammmm cuz it's called efforts, but this timee i willlll! <br><br>
+            Soo yeahh enjoy your day, enjoy this with your friends, enjoy this with your family, enjoy this with mee, with everyone! And please take care of yourself. Don't give a fuck about your teachers okk?? Fuck them, in the end they are just <span class="highlight">NPCs</span> you are the <span class="highlight">main character</span>.<br><br>
+            Soo yeahh i can't give you anything but take this birthday wish from me�this is the only thing I can do rn cuz I'm an online friend. I always wish to goo for a dinner party with you and hope this will happen.<br><br>
+            And Yeahh <span class="highlight">pray all the namaz</span>, don't leave them okk?? Cuz it's now farz for you. <br><br>
+            Soo yeah it's your birthdayyyyyyyyy happy birthday aleenuuuuuu and sorry for everything  I will always regret for that yk what Im talking about I'm sorry ahhh yeah soo where I was? <br><br>
+            Yeah it's your <span class="highlight">16th birthday</span>, your 16th level on this earth! <br><br>
+            Just this... it's your <span class="highlight">mallick hereee</span> wishing you a very very happy birthday girlyyyyy!
+            <div class="end-sig">Happy 16th birthday, Aleena! </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const message = "Ok listen� before cake, before wishes, before drama � I saved some moments here for you  Ready? Don�t laugh too much.";
+let i = 0;
+
+function type() {
+    if (i < message.length) {
+        document.getElementById('text').innerHTML += message.charAt(i);
+        i++;
+        setTimeout(type, 50);
+    } else {
+        setTimeout(showMemories, 2500);
+    }
 }
-function createHeart(e){
- const heart=document.createElement('div');
- heart.className='heart';
- heart.innerHTML='💗';
- heart.style.left=e.clientX+'px';
- heart.style.top=e.clientY+'px';
- document.body.appendChild(heart);
- setTimeout(()=>heart.remove(),2000);
+
+function startExperience() {
+    // Attempt music play
+    const audio = document.getElementById('bgm');
+    audio.play().catch(e => console.log("Music blocked until next click"));
+    
+    // Switch screens instantly
+    document.getElementById('intro').classList.add('hidden');
+    document.getElementById('story').classList.remove('hidden');
+    type();
 }
-</script></body>
+
+const images = [
+    ['image1.jpg', 'The Bestie '],
+    ['image2.jpg', '16 Years of Awesome'],
+    ['image3.jpg', 'Main Character Energy'],
+    ['image4.jpg', 'Kindest Soul '],
+    ['image5.jpg', 'Level 16 Unlocked'],
+    ['image6.jpg', 'Always Girlyyy ']
+];
+
+function showMemories() {
+    document.getElementById('story').classList.add('hidden');
+    const g = document.getElementById('memories');
+    g.classList.remove('hidden');
+    
+    images.forEach((img, index) => {
+        setTimeout(() => {
+            const div = document.createElement('div');
+            div.className = 'polaroid';
+            div.style.setProperty('--r', Math.random() * 30 - 15 + 'deg');
+            div.style.left = Math.random() * 60 + 15 + '%';
+            div.style.top = Math.random() * 60 + 10 + '%';
+            div.innerHTML = `<img src='${img[0]}'><div class='caption'>${img[1]}</div>`;
+            g.appendChild(div);
+            if (index === images.length - 1) setTimeout(showLetter, 5000);
+        }, 1100 * index);
+    });
+}
+
+function showLetter() {
+    document.getElementById('memories').classList.add('hidden');
+    document.getElementById('letter').classList.remove('hidden');
+}
+
+function createHeart(e) {
+    const heart = document.createElement('div');
+    heart.className = 'heart-pop';
+    heart.innerHTML = '';
+    heart.style.left = e.clientX + 'px';
+    heart.style.top = e.clientY + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 1000);
+}
+</script>
+</body>
 </html>
