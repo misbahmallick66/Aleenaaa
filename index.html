@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Aleena 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:linear-gradient(135deg,#ffd6e7,#d6f0ff);font-family:Poppins, sans-serif;text-align:center;color:#333;overflow-x:hidden}
+.container{padding:40px 20px}
+h1{font-family:Montserrat;font-size:3em;color:#ff4d88;margin-top:40px;letter-spacing:1px}
+button{padding:15px 25px;border:none;border-radius:30px;background:#ff4d88;color:white;font-size:18px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.2);transition:.3s}
+button:hover{transform:scale(1.08)}
+.card{display:none;margin-top:30px;animation:fade 1s ease forwards}
+@keyframes fade{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:20px}
+.gallery img{width:100%;border-radius:20px;box-shadow:0 6px 20px rgba(0,0,0,.2);transition:.4s}
+.gallery img:hover{transform:scale(1.05) rotate(2deg)}
+.message{font-size:18px;max-width:700px;margin:20px auto;line-height:1.7}
+.final{font-size:24px;color:#ff4d88;font-weight:600;margin-top:40px}
+.emoji{font-size:30px}
+.heart{position:fixed;font-size:20px;animation:float 2s linear forwards}
+@keyframes float{from{transform:translateY(0) scale(1);opacity:1}to{transform:translateY(-200px) scale(1.8);opacity:0}}
+</style>
+</head>
+<body onclick="createHeart(event)">
+<audio id="bgm" src="song.mp3" loop></audio>
+<div class="container">
+<h1>Tap Here Aleena 💌</h1>
+<button onclick="start()">Open Your Surprise</button><div id="step1" class="card">
+<h1>Happy Birthday Aleena Aroos 🎂</h1>
+<p class="message">Today the world got prettier because you exist 😌</p>
+</div><div id="step2" class="card">
+<p class="message">You are officially upgraded to another level of cute + drama + funny combo pack 😭</p>
+</div><div id="step3" class="card">
+<h1>Our Memories 📸</h1>
+<div class="gallery">
+<img src="image1.jpg">
+<img src="image2.jpg">
+<img src="image3.jpg">
+<img src="image4.jpg">
+<img src="image5.jpg">
+<img src="image6.jpg">
+</div>
+</div><div id="step4" class="card">
+<p class="message">Thank you for being the person I laugh with, annoy, fight and still can't stay mad at 😂</p>
+<p class="message">Life is better because you're in it 💗</p>
+</div><div id="step5" class="card">
+<p class="final">Stay the same soft hearted idiot forever 🤍<br> — Your mallick</p>
+<p class="emoji">🎉🎈🎂</p>
+</div>
+</div><script>
+function start(){
+ document.querySelector('button').style.display='none';
+ document.getElementById('bgm').play();
+ let steps=['step1','step2','step3','step4','step5'];
+ steps.forEach((id,i)=>{
+   setTimeout(()=>{document.getElementById(id).style.display='block';},1500*i);
+ });
+}
+function createHeart(e){
+ const heart=document.createElement('div');
+ heart.className='heart';
+ heart.innerHTML='💗';
+ heart.style.left=e.clientX+'px';
+ heart.style.top=e.clientY+'px';
+ document.body.appendChild(heart);
+ setTimeout(()=>heart.remove(),2000);
+}
+</script></body>
+</html>
